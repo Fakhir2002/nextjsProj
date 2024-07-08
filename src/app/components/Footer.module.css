@@ -8,3 +8,12 @@
   bottom: 0;
   width: 100%;
 }
+
+.footerContent {
+  max-width: 960px; /* Adjust max-width based on your layout */
+  margin: 0 auto; /* Center align content */
+}
+
+.footer p {
+  margin: 0; /* Reset margin to ensure no extra spacing */
+}

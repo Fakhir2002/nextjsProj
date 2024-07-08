@@ -1,24 +1,66 @@
-// src/app/posts/[postId]/page.js
-
+"use client";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 // Function to fetch post data
 async function fetchPost(postId) {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts/${postId}`
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch post");
+  try {
+    const res = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${postId}`
+    );
+    if (!res.ok) {
+      throw new Error("Failed to fetch post");
+    }
+    return res.json();
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    throw error; // Re-throw the error to propagate it upwards
   }
-  return res.json();
+}
+
+// Function to update post view information
+async function updatePostView(postId) {
+  try {
+    const res = await fetch(`/backend/server`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (!res.ok) {
+      throw new Error("Failed to update post view");
+    }
+  } catch (error) {
+    console.error("Error updating post view:", error);
+    throw error; // Re-throw the error to propagate it upwards
+  }
 }
 
 // Component to display post details
-export default async function PostPage({ params }) {
+export default function PostPage({ params }) {
   const { postId } = params;
-  const post = await fetchPost(postId);
+  const [post, setPost] = useState(null);
+
+  // Fetch post data when component mounts
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const postData = await fetchPost(postId);
+        setPost(postData);
+        // Update post view information when post is viewed
+        await updatePostView(postId); // Wait for update to complete
+      } catch (error) {
+        console.error("Error fetching or updating post:", error);
+      }
+    };
+
+    fetchData();
+  }, [postId]);
+
+  if (!post) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
@@ -26,19 +68,10 @@ export default async function PostPage({ params }) {
       <main>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
+        <p>Views: {post.views}</p>
+        <p>Last viewed: {new Date(post.lastViewedAt).toLocaleString()}</p>
       </main>
       <Footer />
     </div>
   );
-}
-
-// Optional: Pre-generate static params for certain posts
-export async function generateStaticParams() {
-  // Fetch a list of posts and return their IDs
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
-  const posts = await res.json();
-
-  return posts.map((post) => ({
-    postId: String(post.id), // Ensure postId is a string
-  }));
 }
