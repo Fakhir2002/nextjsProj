@@ -1,19 +1,30 @@
 /* components/Footer.module.css */
+
 .footer {
   background-color: #333;
   color: white;
-  padding: 10px;
+  padding: 20px;
   text-align: center;
   position: fixed;
   bottom: 0;
-  width: 100%;
+  left: 0;
+  right: 0;
+  width: 96%;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0px -5px 15px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .footerContent {
-  max-width: 960px; /* Adjust max-width based on your layout */
-  margin: 0 auto; /* Center align content */
+  max-width: 960px;
+  width: calc(100% - 40px); /* Adjusted width to account for padding */
+  margin: 0 auto;
 }
 
 .footer p {
-  margin: 0; /* Reset margin to ensure no extra spacing */
+  margin: 0;
+  font-size: 14px; /* Adjust as needed */
+  line-height: 1.5;
 }
