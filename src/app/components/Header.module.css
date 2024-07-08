@@ -1,0 +1,12 @@
+/* components/Header.module.css */
+.header {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+
+.navLink {
+  margin: 0 15px;
+  color: white;
+}
