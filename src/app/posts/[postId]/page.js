@@ -1,6 +1,6 @@
 "use client";
-import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
 import React, { useEffect, useState } from "react";
 
 // Function to fetch post data
@@ -19,24 +19,6 @@ async function fetchPost(postId) {
   }
 }
 
-// Function to update post view information
-async function updatePostView(postId) {
-  try {
-    const res = await fetch(`/backend/server`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    if (!res.ok) {
-      throw new Error("Failed to update post view");
-    }
-  } catch (error) {
-    console.error("Error updating post view:", error);
-    throw error; // Re-throw the error to propagate it upwards
-  }
-}
-
 // Component to display post details
 export default function PostPage({ params }) {
   const { postId } = params;
@@ -48,10 +30,8 @@ export default function PostPage({ params }) {
       try {
         const postData = await fetchPost(postId);
         setPost(postData);
-        // Update post view information when post is viewed
-        await updatePostView(postId); // Wait for update to complete
       } catch (error) {
-        console.error("Error fetching or updating post:", error);
+        console.error("Error fetching post:", error);
       }
     };
 
@@ -65,11 +45,9 @@ export default function PostPage({ params }) {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingLeft: "20px" }}>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
-        <p>Views: {post.views}</p>
-        <p>Last viewed: {new Date(post.lastViewedAt).toLocaleString()}</p>
       </main>
       <Footer />
     </div>

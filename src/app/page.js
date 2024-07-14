@@ -1,13 +1,13 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Counter from "./components/Counter";
-import UserProfile from "./components/UserProfile";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Counter from "../components/Counter";
+import UserProfile from "../components/UserProfile";
 
 export default function Home() {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingLeft: "20px" }}>
         <h2>Home Page</h2>
         <p>This is the home page.</p>
         <Counter />

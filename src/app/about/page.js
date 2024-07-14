@@ -1,8 +1,8 @@
 // pages/about.js
 "use client";
 import React, { useState, useEffect } from "react";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function HomePage() {
   const [data, setData] = useState(null);
@@ -28,7 +28,7 @@ export default function HomePage() {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingLeft: "20px" }}>
         <h2>API Data</h2>
         <pre>{JSON.stringify(data, null, 2)}</pre>
       </main>

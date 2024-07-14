@@ -1,8 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
 
 export default function Pages() {
   const [posts, setPosts] = useState([]);
@@ -39,7 +39,7 @@ export default function Pages() {
   return (
     <div>
       <Header />
-      <main>
+      <main style={{ paddingLeft: "20px" }}>
         <h2>The Page</h2>
         <ul>
           {posts.map((post) => (

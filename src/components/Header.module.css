@@ -1,0 +1,107 @@
+/* components/Header.module.css */
+
+.header {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.headerTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navLinks {
+  display: flex;
+  justify-content: center;
+}
+
+.navLink {
+  margin: 0 15px;
+  color: white;
+  cursor: pointer;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.authButtonContainer {
+  position: relative;
+}
+
+.authButton {
+  background-color: #fff;
+  color: #4caf50;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.authButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownItem {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #45a049;
+}
+
+.userInfo {
+  padding: 10px 15px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  color: #4caf50;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.userInfo p {
+  margin: 0;
+}
+
+.userAvatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}

@@ -1,0 +1,102 @@
+/* components/SignInForm.module.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal {
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 400px;
+  text-align: center;
+  position: relative; /* For positioning the close button */
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #4caf50; /* Customize color if needed */
+}
+
+.signInTitle {
+  font-size: 28px;
+  font-weight: bold;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.modal input {
+  margin: 10px 0;
+  padding: 12px;
+  width: calc(100% - 24px);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submitButton {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.submitButton:hover {
+  background-color: #45a049;
+}
+
+.socialLogin {
+  margin: 15px 0;
+}
+
+.socialButton {
+  margin: 5px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  color: #4caf50;
+  cursor: pointer;
+}
+
+.socialButton:hover {
+  background-color: #e0e0e0;
+}
+
+.accountOptions {
+  margin-top: 10px;
+  font-size: 14px; /* Smaller font size */
+  color: #4caf50;
+}
+
+.accountOptions span {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.accountOptions span:hover {
+  color: #45a049;
+}
+
+.error {
+  color: red; /* Or any color you prefer */
+  margin: 10px 0; /* Add margin for spacing */
+  font-weight: bold; /* Make the error text bold */
+}
