@@ -3,10 +3,11 @@
 
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import styles from "./MobileHeader.module.css"; // Add your mobile styles here
+import styles from "./MobileHeader.module.css"; // Update with your mobile styles
 import { useState } from "react";
 
-const MobileHeader = ({ session, status }) => {
+const MobileHeader = () => {
+  const { data: session, status } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const handleDeleteAccount = async () => {

@@ -1,64 +1,64 @@
-.header {
+/* MobileHeader.module.css */
+
+.mobileHeader {
   background-color: #4caf50; /* Header background */
   color: white; /* Text color */
-  padding: 15px 30px; /* Increased padding for better spacing */
-  border-radius: 15px; /* Slightly reduced border-radius */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
-  top: 0; /* Stick to the top */
+  padding: 10px 15px; /* Adjusted padding */
+  border-top-left-radius: 0; /* No rounding on the top left */
+  border-top-right-radius: 0; /* No rounding on the top right */
+  border-bottom-left-radius: 15px; /* Keep bottom left rounded */
+  border-bottom-right-radius: 15px; /* Keep bottom right rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow */
+  position: fixed; /* Fixed positioning to stick to the top */
+  top: 0; /* Stick to the very top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
   z-index: 1000; /* Ensure it appears above other content */
+  margin: 0; /* No margin */
 }
 
 .headerContent {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 960px;
-  margin: 0 auto; /* Center header content */
 }
 
 .headerTitle {
-  font-size: 26px; /* Larger title size */
-  font-weight: bold;
+  font-size: 20px; /* Title size */
+  text-align: center; /* Center the title */
+  flex: 1; /* Allow title to take available space */
+  margin-left: 30px; /* Slightly push the title to the right */
 }
 
 .navLinks {
-  display: flex; /* Flexbox for horizontal alignment */
-  justify-content: center;
+  display: flex; /* Horizontal layout */
+  justify-content: center; /* Center the nav links */
+  margin-top: 5px; /* Reduced space above links */
 }
 
 .navLink {
-  margin: 0 20px; /* Increased margin for better spacing */
+  padding: 10px 15px; /* Padding for links */
   color: white;
-  cursor: pointer;
-  padding: 10px 15px;
   text-decoration: none;
   display: inline-block;
-  border-radius: 25px; /* More rounded corners */
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform effect */
+  border-radius: 25px; /* Rounded corners */
+  transition: background-color 0.3s ease;
 }
 
 .navLink:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Hover background */
-  transform: translateY(-2px); /* Subtle lift effect on hover */
+  background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
 }
 
 .authButtonContainer {
-  position: relative;
+  position: relative; /* For dropdown */
 }
 
-.authButton {
-  background-color: white; /* Button background */
-  color: #4caf50; /* Button text color */
-  border: none;
-  padding: 10px 20px; /* Increased padding for the button */
-  border-radius: 25px; /* Rounded corners */
+.userAvatar {
+  width: 30px; /* Avatar size */
+  height: 30px;
+  border-radius: 50%; /* Circular avatar */
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform effect */
-}
-
-.authButton:hover {
-  background-color: rgba(76, 175, 80, 0.1); /* Light hover effect */
-  transform: translateY(-2px); /* Lift effect on hover */
+  margin-left: auto; /* Push the avatar to the far right */
 }
 
 .dropdownMenu {
@@ -66,19 +66,17 @@
   top: 100%;
   right: 0;
   background-color: white;
-  border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdownItem {
-  background-color: #4caf50; /* Dropdown item background */
+  background-color: #4caf50; /* Item background */
   color: white;
-  border: none;
-  padding: 10px 15px; /* Padding for dropdown items */
-  width: 100%;
+  padding: 10px;
   cursor: pointer;
+  border: none;
   border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s ease;
 }
@@ -88,52 +86,9 @@
 }
 
 .userInfo {
-  padding: 10px 15px; /* Padding for user info */
+  padding: 10px; /* Padding for user info */
   background-color: #f9f9f9; /* Background for user info */
   border-radius: 5px;
-  color: #4caf50; /* Text color for user info */
+  color: #4caf50; /* Text color */
   font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.userInfo p {
-  margin: 0; /* Remove default margin */
-}
-
-.userAvatar {
-  width: 40px; /* Avatar size */
-  height: 40px;
-  border-radius: 50%; /* Circular avatar */
-  cursor: pointer;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-  .headerContent {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
-  }
-
-  .navLinks {
-    flex-direction: column; /* Stack nav links vertically */
-    align-items: flex-start;
-    margin: 10px 0;
-  }
-
-  .navLink {
-    margin: 5px 0; /* Adjust spacing for stacked links */
-  }
-
-  .headerTitle {
-    font-size: 22px; /* Adjust title size */
-  }
-
-  .authButton {
-    padding: 8px 15px; /* Adjust button size */
-  }
-
-  .userAvatar {
-    width: 30px; /* Smaller avatar on small screens */
-    height: 30px;
-  }
 }
