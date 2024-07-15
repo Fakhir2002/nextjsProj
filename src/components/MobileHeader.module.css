@@ -3,11 +3,18 @@
 .mobileHeader {
   background-color: #4caf50; /* Header background */
   color: white; /* Text color */
-  padding: 10px 15px; /* Padding */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 10px 15px; /* Adjusted padding */
+  border-top-left-radius: 0; /* No rounding on the top left */
+  border-top-right-radius: 0; /* No rounding on the top right */
+  border-bottom-left-radius: 15px; /* Keep bottom left rounded */
+  border-bottom-right-radius: 15px; /* Keep bottom right rounded */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Shadow */
+  position: fixed; /* Fixed positioning to stick to the top */
+  top: 0; /* Stick to the very top */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  z-index: 1000; /* Ensure it appears above other content */
+  margin: 0; /* No margin */
 }
 
 .headerContent {
@@ -18,18 +25,23 @@
 
 .headerTitle {
   font-size: 20px; /* Title size */
+  text-align: center; /* Center the title */
+  flex: 1; /* Allow title to take available space */
+  margin-left: 30px; /* Slightly push the title to the right */
 }
 
 .navLinks {
-  display: flex;
-  flex-direction: column; /* Stack vertically */
+  display: flex; /* Horizontal layout */
+  justify-content: center; /* Center the nav links */
+  margin-top: 5px; /* Reduced space above links */
 }
 
 .navLink {
-  padding: 10px;
+  padding: 10px 15px; /* Padding for links */
   color: white;
   text-decoration: none;
-  text-align: center; /* Center text */
+  display: inline-block;
+  border-radius: 25px; /* Rounded corners */
   transition: background-color 0.3s ease;
 }
 
@@ -46,6 +58,7 @@
   height: 30px;
   border-radius: 50%; /* Circular avatar */
   cursor: pointer;
+  margin-left: auto; /* Push the avatar to the far right */
 }
 
 .dropdownMenu {
