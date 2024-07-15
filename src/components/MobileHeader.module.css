@@ -1,0 +1,81 @@
+/* MobileHeader.module.css */
+
+.mobileHeader {
+  background-color: #4caf50; /* Header background */
+  color: white; /* Text color */
+  padding: 10px 15px; /* Padding */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.headerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerTitle {
+  font-size: 20px; /* Title size */
+}
+
+.navLinks {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+}
+
+.navLink {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  text-align: center; /* Center text */
+  transition: background-color 0.3s ease;
+}
+
+.navLink:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hover effect */
+}
+
+.authButtonContainer {
+  position: relative; /* For dropdown */
+}
+
+.userAvatar {
+  width: 30px; /* Avatar size */
+  height: 30px;
+  border-radius: 50%; /* Circular avatar */
+  cursor: pointer;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdownItem {
+  background-color: #4caf50; /* Item background */
+  color: white;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease;
+}
+
+.dropdownItem:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+.userInfo {
+  padding: 10px; /* Padding for user info */
+  background-color: #f9f9f9; /* Background for user info */
+  border-radius: 5px;
+  color: #4caf50; /* Text color */
+  font-weight: bold;
+}

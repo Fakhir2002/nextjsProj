@@ -1,28 +1,13 @@
+// components/MobileHeader.js
 "use client";
 
 import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
-import styles from "./Header.module.css";
-import { useEffect, useState } from "react";
-import SignInForm from "./SignInForm"; // Import the SignInForm component
-import MobileHeader from "./MobileHeader"; // Import the new MobileHeader component
+import styles from "./MobileHeader.module.css"; // Add your mobile styles here
+import { useState } from "react";
 
-const Header = () => {
-  const { data: session, status } = useSession();
+const MobileHeader = ({ session, status }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const [showSignIn, setShowSignIn] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Update mobile state on resize
-  const handleResize = () => {
-    setIsMobile(window.innerWidth < 600);
-  };
-
-  useEffect(() => {
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize); // Add event listener
-    return () => window.removeEventListener("resize", handleResize); // Cleanup
-  }, []);
 
   const handleDeleteAccount = async () => {
     const response = await fetch("/api/auth/delete", {
@@ -40,25 +25,10 @@ const Header = () => {
     }
   };
 
-  if (isMobile) {
-    return <MobileHeader session={session} status={status} />;
-  }
-
   return (
-    <header className={styles.header}>
+    <header className={styles.mobileHeader}>
       <div className={styles.headerContent}>
         <h1 className={styles.headerTitle}>Next App</h1>
-        <nav className={styles.navLinks}>
-          <Link href="/" passHref>
-            <div className={styles.navLink}>Home</div>
-          </Link>
-          <Link href="/about" passHref>
-            <div className={styles.navLink}>About</div>
-          </Link>
-          <Link href="/posts" passHref>
-            <div className={styles.navLink}>Posts</div>
-          </Link>
-        </nav>
         <div className={styles.authButtonContainer}>
           {status === "authenticated" ? (
             <>
@@ -89,18 +59,25 @@ const Header = () => {
               )}
             </>
           ) : (
-            <button
-              className={styles.authButton}
-              onClick={() => setShowSignIn(true)}
-            >
+            <button className={styles.authButton} onClick={() => signIn()}>
               Login
             </button>
           )}
         </div>
       </div>
-      {showSignIn && <SignInForm onClose={() => setShowSignIn(false)} />}
+      <nav className={styles.navLinks}>
+        <Link href="/" passHref>
+          <div className={styles.navLink}>Home</div>
+        </Link>
+        <Link href="/about" passHref>
+          <div className={styles.navLink}>About</div>
+        </Link>
+        <Link href="/posts" passHref>
+          <div className={styles.navLink}>Posts</div>
+        </Link>
+      </nav>
     </header>
   );
 };
 
-export default Header;
+export default MobileHeader;
