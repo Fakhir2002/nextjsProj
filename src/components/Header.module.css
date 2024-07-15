@@ -1,12 +1,12 @@
-/* components/Header.module.css */
-
 .header {
-  background-color: #4caf50;
-  color: white;
-  padding: 10px 20px;
-  text-align: center;
-  border-radius: 20px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  background-color: #4caf50; /* Header background */
+  color: white; /* Text color */
+  padding: 15px 30px; /* Increased padding for better spacing */
+  border-radius: 15px; /* Slightly reduced border-radius */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
+
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
 .headerContent {
@@ -14,32 +14,33 @@
   justify-content: space-between;
   align-items: center;
   max-width: 960px;
-  margin: 0 auto;
+  margin: 0 auto; /* Center header content */
 }
 
 .headerTitle {
-  font-size: 24px;
+  font-size: 26px; /* Larger title size */
   font-weight: bold;
 }
 
 .navLinks {
-  display: flex;
+  display: flex; /* Flexbox for horizontal alignment */
   justify-content: center;
 }
 
 .navLink {
-  margin: 0 15px;
+  margin: 0 20px; /* Increased margin for better spacing */
   color: white;
   cursor: pointer;
   padding: 10px 15px;
   text-decoration: none;
   display: inline-block;
-  border-radius: 20px;
-  transition: background-color 0.3s ease;
+  border-radius: 25px; /* More rounded corners */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform effect */
 }
 
 .navLink:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); /* Hover background */
+  transform: translateY(-2px); /* Subtle lift effect on hover */
 }
 
 .authButtonContainer {
@@ -47,17 +48,18 @@
 }
 
 .authButton {
-  background-color: #fff;
-  color: #4caf50;
+  background-color: white; /* Button background */
+  color: #4caf50; /* Button text color */
   border: none;
-  padding: 10px 15px;
-  border-radius: 20px;
+  padding: 10px 20px; /* Increased padding for the button */
+  border-radius: 25px; /* Rounded corners */
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform effect */
 }
 
 .authButton:hover {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(76, 175, 80, 0.1); /* Light hover effect */
+  transform: translateY(-2px); /* Lift effect on hover */
 }
 
 .dropdownMenu {
@@ -67,41 +69,72 @@
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 5px;
-  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   z-index: 1;
 }
 
 .dropdownItem {
-  background-color: #4caf50;
+  background-color: #4caf50; /* Dropdown item background */
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 15px; /* Padding for dropdown items */
   width: 100%;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 5px; /* Rounded corners */
   transition: background-color 0.3s ease;
 }
 
 .dropdownItem:hover {
-  background-color: #45a049;
+  background-color: #45a049; /* Darker green on hover */
 }
 
 .userInfo {
-  padding: 10px 15px;
-  background-color: #f9f9f9;
+  padding: 10px 15px; /* Padding for user info */
+  background-color: #f9f9f9; /* Background for user info */
   border-radius: 5px;
-  color: #4caf50;
+  color: #4caf50; /* Text color for user info */
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .userInfo p {
-  margin: 0;
+  margin: 0; /* Remove default margin */
 }
 
 .userAvatar {
-  width: 40px;
+  width: 40px; /* Avatar size */
   height: 40px;
-  border-radius: 50%;
+  border-radius: 50%; /* Circular avatar */
   cursor: pointer;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+  .headerContent {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align items to the start */
+  }
+
+  .navLinks {
+    flex-direction: column; /* Stack nav links vertically */
+    align-items: flex-start;
+    margin: 10px 0;
+  }
+
+  .navLink {
+    margin: 5px 0; /* Adjust spacing for stacked links */
+  }
+
+  .headerTitle {
+    font-size: 22px; /* Adjust title size */
+  }
+
+  .authButton {
+    padding: 8px 15px; /* Adjust button size */
+  }
+
+  .userAvatar {
+    width: 30px; /* Smaller avatar on small screens */
+    height: 30px;
+  }
 }

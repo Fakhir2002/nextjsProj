@@ -12,6 +12,22 @@ const Header = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [showSignIn, setShowSignIn] = useState(false);
 
+  const handleDeleteAccount = async () => {
+    const response = await fetch("/api/auth/delete", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    if (response.ok) {
+      alert("Account deleted successfully!");
+      signOut(); // Log out after deletion
+    } else {
+      alert("Failed to delete account.");
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.headerContent}>
@@ -29,12 +45,33 @@ const Header = () => {
         </nav>
         <div className={styles.authButtonContainer}>
           {status === "authenticated" ? (
-            <img
-              src={session.user.image}
-              alt="User Avatar"
-              className={styles.userAvatar}
-              onClick={() => setDropdownOpen((prev) => !prev)}
-            />
+            <>
+              <img
+                src={session.user.image}
+                alt="User Avatar"
+                className={styles.userAvatar}
+                onClick={() => setDropdownOpen((prev) => !prev)}
+              />
+              {dropdownOpen && (
+                <div className={styles.dropdownMenu}>
+                  <div className={styles.userInfo}>
+                    <p>Signed in as {session.user.name}</p>
+                  </div>
+                  <button
+                    onClick={handleDeleteAccount}
+                    className={styles.dropdownItem}
+                  >
+                    Delete Account
+                  </button>
+                  <button
+                    onClick={() => signOut()}
+                    className={styles.dropdownItem}
+                  >
+                    Sign out
+                  </button>
+                </div>
+              )}
+            </>
           ) : (
             <button
               className={styles.authButton}
@@ -42,16 +79,6 @@ const Header = () => {
             >
               Login
             </button>
-          )}
-          {dropdownOpen && (
-            <div className={styles.dropdownMenu}>
-              <div className={styles.userInfo}>
-                <p>{session.user.name}</p>
-              </div>
-              <button onClick={() => signOut()} className={styles.dropdownItem}>
-                Sign out
-              </button>
-            </div>
           )}
         </div>
       </div>
