@@ -1,0 +1,13 @@
+/* Posts.module.css */
+
+.mainContent {
+  padding-left: 20px; /* Default padding */
+  margin-top: 20px; /* Default margin for desktop */
+}
+
+/* Mobile styles */
+@media (max-width: 600px) {
+  .mainContent {
+    margin-top: 120px; /* Margin for mobile devices */
+  }
+}

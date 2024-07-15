@@ -1,10 +1,12 @@
+// pages/posts.js
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
+import styles from "./Posts.module.css"; // Import the CSS module
 
-export default function Pages() {
+export default function Posts() {
   const [posts, setPosts] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,7 +41,7 @@ export default function Pages() {
   return (
     <div>
       <Header />
-      <main style={{ paddingLeft: "20px" }}>
+      <main className={styles.mainContent}>
         <h2>The Page</h2>
         <ul>
           {posts.map((post) => (

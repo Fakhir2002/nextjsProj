@@ -1,7 +1,9 @@
+// pages/posts/[postId].js
 "use client";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import React, { useEffect, useState } from "react";
+import styles from "./PostPage.module.css"; // Import the CSS module
 
 // Function to fetch post data
 async function fetchPost(postId) {
@@ -45,7 +47,7 @@ export default function PostPage({ params }) {
   return (
     <div>
       <Header />
-      <main style={{ paddingLeft: "20px" }}>
+      <main className={styles.mainContent}>
         <h2>{post.title}</h2>
         <p>{post.body}</p>
       </main>
