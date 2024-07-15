@@ -5,10 +5,12 @@ import Link from "next/link";
 import { signIn, signOut, useSession } from "next-auth/react";
 import styles from "./MobileHeader.module.css"; // Update with your mobile styles
 import { useState } from "react";
+import SignInForm from "./SignInForm"; // Import the SignInForm component
 
 const MobileHeader = () => {
   const { data: session, status } = useSession();
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false); // State for sign-in form visibility
 
   const handleDeleteAccount = async () => {
     const response = await fetch("/api/auth/delete", {
@@ -60,7 +62,10 @@ const MobileHeader = () => {
               )}
             </>
           ) : (
-            <button className={styles.authButton} onClick={() => signIn()}>
+            <button
+              className={styles.authButton}
+              onClick={() => setShowSignIn(true)}
+            >
               Login
             </button>
           )}
@@ -77,6 +82,8 @@ const MobileHeader = () => {
           <div className={styles.navLink}>Posts</div>
         </Link>
       </nav>
+      {showSignIn && <SignInForm onClose={() => setShowSignIn(false)} />}{" "}
+      {/* Show SignInForm if state is true */}
     </header>
   );
 };

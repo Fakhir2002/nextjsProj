@@ -106,34 +106,3 @@
   border-radius: 50%; /* Circular avatar */
   cursor: pointer;
 }
-
-/* Media Queries for Responsive Design */
-@media (max-width: 600px) {
-  .headerContent {
-    flex-direction: column; /* Stack items vertically */
-    align-items: flex-start; /* Align items to the start */
-  }
-
-  .navLinks {
-    flex-direction: column; /* Stack nav links vertically */
-    align-items: flex-start;
-    margin: 10px 0;
-  }
-
-  .navLink {
-    margin: 5px 0; /* Adjust spacing for stacked links */
-  }
-
-  .headerTitle {
-    font-size: 22px; /* Adjust title size */
-  }
-
-  .authButton {
-    padding: 8px 15px; /* Adjust button size */
-  }
-
-  .userAvatar {
-    width: 30px; /* Smaller avatar on small screens */
-    height: 30px;
-  }
-}

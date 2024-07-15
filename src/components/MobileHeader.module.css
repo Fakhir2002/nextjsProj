@@ -27,7 +27,7 @@
   font-size: 20px; /* Title size */
   text-align: center; /* Center the title */
   flex: 1; /* Allow title to take available space */
-  margin-left: 30px; /* Slightly push the title to the right */
+  margin-left: 65px; /* Slightly push the title to the right */
 }
 
 .navLinks {
@@ -61,16 +61,16 @@
   margin-left: auto; /* Push the avatar to the far right */
 }
 
-.dropdownMenu {
-  position: absolute;
-  top: 100%;
-  right: 0;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+.dropdownItem {
+  background-color: #4caf50; /* Dropdown item background */
+  color: white;
+  border: none;
+  padding: 10px 15px; /* Padding for dropdown items */
+  width: 100%;
+  cursor: pointer;
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s ease;
 }
-
 .dropdownItem {
   background-color: #4caf50; /* Item background */
   color: white;
@@ -91,4 +91,19 @@
   border-radius: 5px;
   color: #4caf50; /* Text color */
   font-weight: bold;
+}
+
+.authButton {
+  background-color: white; /* Button background */
+  color: #4caf50; /* Button text color */
+  border: none;
+  padding: 10px 15px; /* Increased padding for the button */
+  border-radius: 25px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Added transform effect */
+}
+
+.authButton:hover {
+  background-color: rgba(76, 175, 80, 0.1); /* Light hover effect */
+  transform: translateY(-2px); /* Lift effect on hover */
 }
