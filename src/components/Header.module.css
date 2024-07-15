@@ -4,7 +4,6 @@
   padding: 15px 30px; /* Increased padding for better spacing */
   border-radius: 15px; /* Slightly reduced border-radius */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Softer shadow */
-
   top: 0; /* Stick to the top */
   z-index: 1000; /* Ensure it appears above other content */
 }
